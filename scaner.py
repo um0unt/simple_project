@@ -29,7 +29,9 @@ result = pd.DataFrame(tcp_df.groupby(									#create result table
 				'Destination',
 				'Src name port',
 				'Dst name port'
-				])['Source'].size());
+				])['Source'].count());
+
+result.sort_values(by=['Source'], ascending=False, inplace=True)		#sort by decrease
 
 result = result.rename(columns={'Source':'Number of requests'})			#rename sort colunm
 
